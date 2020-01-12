@@ -1,0 +1,30 @@
+docker run -p 8088:8088 -p 50070:50070 -v D:/IIT/Hive:/resources -d --name hadoop-hive-pig -d suhothayan/hadoop-hive-pig:2.7.1
+
+docker exec -it hadoop-hive-pig bash
+
+cd resources
+
+hdfs dfs -put listings.csv
+
+hive
+
+create database airbnb;
+
+create table listings (id int, name string, host_id int, host_name string, neighbour_group string, 
+neighbourhood string, latitude float, logitude float, room_type string, price float, minimum_nights float, 
+number_of_reviews int,last_review string, reviews_per_month int, calculated_host_listings_count int, 
+availablity_365 int) 
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES (
+ "separatorChar" = ",",
+ "quoteChar" = "\""
+    )
+  tblproperties ("skip.header.line.count"="1");
+
+LOAD DATA LOCAL INPATH 'listings.csv' INTO TABLE listings;
+
+Select neighbour_group, avg(price) from listings where room_type='Private room' group by neighbour_group;
+
+Select neighbourhood, avg(price) AS AvgPrice from listings where room_type='Private room' group by neighbourhood order by AvgPrice limit 10;
+
+select t2.room_type, t2.price from (select t.room_type, t.price, ROW_NUMBER() over (Partition BY t.room_type order by t.price) AS RNUM from (select room_type,(CASt(price as int)) as price from listings order by price asc)t)t2 where RNUM <=5;  
+
