@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Bigdata Dashboard</title>
+
+         <!--------------------------question 1-------------------------->
+      <h2>1. Total number of rentals available 365 days a year </h2>
+
+      <input type="text" id="myNumber" value="843"><br><br><br>
+
+
+        <!-- import plugin script -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    </head>
+    <body>
+        <h2>2. Numbers of Rentals per neighbourhood_group</h2>
+      <!--------------------------question 2-------------------------->
+        <!-- bar chart Q2 canvas element -->
+        <canvas id="income1" width="600" height="400"></canvas>
+
+       
+
+     
+        
+        <script>
+          
+            // bar chart1 data
+            var barData = {
+                labels : ["Bedok","BukitTimah","CentralRegion","Geylang","North-Eastrigion","NorthRegion","WestRegion"],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : [4,2,6295,12,346,204,540]
+                    },
+                    
+                ]
+            }
+            // get bar1 chart canvas
+            var income = document.getElementById("income1").getContext("2d");
+            // draw bar1 chart
+            new Chart(income).Bar(barData);
+            </script><br><br>
+
+<h2>3. Avareage Price of private room Rentals by neighbourhood_group</h2>
+ <!-- bar chart Q3 canvas element -->
+ <canvas id="income2" width="600" height="400"></canvas>
+<script>
+         //<!--------------------------question 3-------------------------->
+ // bar chart2 data
+ var barData = {
+                labels : ["CentralRegion","EastRegion","NorthRegion","North-Eastregion","WestRegion"],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : [114.38,117.23,81.99,79.87,117.82]
+                    },
+                  
+                ]
+            }
+            // get bar chart2 canvas
+            var income = document.getElementById("income2").getContext("2d");
+            // draw bar chart2
+            new Chart(income).Bar(barData);
+            </script>
+<!--------------------------question 4-------------------------->
+<h2>4. Neighbourhood based on Average price of Private room</h2>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+    
+    
+    
+    <table>
+      <tr>
+        <th>neighbourhood</th>
+        <th>Average price of Private room</th>
+        
+      </tr>
+      <tr>
+        <td>Western Water Catchment</td>
+        <td>41.66</td>
+       
+      </tr>
+      <tr>
+        <td>Mandai</td>
+        <td>42.0</td>
+      
+      </tr>
+      <tr>
+        <td>Woodlands</td>
+        <td>57.80</td>
+      
+      </tr>
+      <tr>
+        <td>Punggol</td>
+        <td>59.51</td>
+        
+      </tr>
+      <tr>
+        <td>Sungei Kadut</td>
+        <td>66.50</td>
+        
+      </tr>
+      <tr>
+        <td>Pasir Ris</td>
+        <td>66.79</td>
+        
+      </tr>
+      <tr>
+        <td>Jurong West</td>
+        <td>70.08</td>
+        
+      </tr>
+      <tr>
+        <td>Choa Chu Kang</td>
+        <td>72.82</td>
+        
+      </tr>
+      <tr>
+        <td>Sengkang</td>
+        <td>72.96</td>
+        
+      </tr>
+      <tr>
+        <td>Bukit Batok</td>
+        <td>74.46</td>
+        
+      </tr>
+    </table>
+    <br><br>
+
+
+<!--------------------------question 5-------------------------->
+<h2>5. lowest price rentals per each room_type</h2>
+<style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <table id="customers">
+      <tr>
+        <th>Room Type</th>
+        <th>Price</th>
+        
+      </tr>
+      <tr>
+        <td>Entire home/apt</td>
+        <td>0</td>
+       
+      </tr>
+      <tr>
+        <td>Entire home/apt</td>
+        <td>14</td>
+       
+      </tr>
+      <tr>
+        <td>Entire home/apt</td>
+        <td>14</td>
+        
+      </tr>
+      <tr>
+        <td>Entire home/apt</td>
+        <td>31</td>
+       
+      </tr>
+      <tr>
+        <td>Entire home/apt</td>
+        <td>39</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>14</td>
+     
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>15</td>
+       
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>15</td>
+      
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>15</td>
+      
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>15</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>14</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>15</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>18</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>18</td>
+    
+      </tr>
+      <tr>
+        <td>Private Room</td>
+        <td>19</td>
+    
+      </tr>
+    </table>
+<br><br>
+//<!--------------------------question 6-------------------------->
+<h2>6. Owners who rent more than one property</h2>
+ <!-- pie chart Q6 canvas element -->
+ <canvas id="countries" width="600" height="400"></canvas>
+
+ 
+<script>
+            // pie chart data
+            var pieData = [
+                {
+                    value: 33.04,
+                    color:"#878BB6"
+                },
+                {
+                    value : 66.96,
+                    color : "#4ACAB4"
+                },
+               
+            ];
+            // pie chart options
+            var pieOptions = {
+                 segmentShowStroke : false,
+                 animateScale : true
+            }
+            // get pie chart canvas
+            var countries= document.getElementById("countries").getContext("2d");
+            // draw pie chart
+            new Chart(countries).Pie(pieData, pieOptions);
+            </script><br><br>
+
+
+<!-- bar chart Q7 canvas element -->
+<h2>7. Histogram of number of rentals reviewed over time (based on last_review) in mouth
+    granularity</h2>
+<canvas id="income3" width="600" height="400"></canvas>
+
+            <script>
+          //<!--------------------------question 7-------------------------->
+          var barData = {
+                labels : ["2015-11","2016-11","2017-11","2017-8","2018-6","2019-7"],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : [5,5,10,20,15,60000]
+                    },
+                   
+                ]
+            }
+            // get bar chart2 canvas
+            var income = document.getElementById("income3").getContext("2d");
+            // draw bar chart2
+            new Chart(income).Bar(barData);
+        </script>
+<br><br>
+<!--------------------------question 8-------------------------->
+<h2>8. Number of rentals that are available all 365 days of the year for each neighbourhood,
+    that are in the neighbourhood which have top 5 average rental prices</h2>
+<style>
+    #customer2 {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customer2 td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customer2 tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customer2 tr:hover {background-color: #ddd;}
+    
+    #customer2 th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <table id="customer2">
+      <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+      </tr>
+      <tr>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+      </tr>
+      <tr>
+        <td>Berglunds snabbköp</td>
+        <td>Christina Berglund</td>
+        <td>Sweden</td>
+      </tr>
+      <tr>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+      </tr>
+      <tr>
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+      </tr>
+      <tr>
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+      </tr>
+      <tr>
+        <td>Königlich Essen</td>
+        <td>Philip Cramer</td>
+        <td>Germany</td>
+      </tr>
+      <tr>
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+      </tr>
+      <tr>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+      </tr>
+      <tr>
+        <td>North/South</td>
+        <td>Simon Crowther</td>
+        <td>UK</td>
+      </tr>
+      <tr>
+        <td>Paris spécialités</td>
+        <td>Marie Bertrand</td>
+        <td>France</td>
+      </tr>
+    </table>
+
+
+    </body>
+</html>
