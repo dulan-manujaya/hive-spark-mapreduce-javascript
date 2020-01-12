@@ -1,0 +1,16 @@
+docker run -p 8088:8088 -p 50070:50070 -v D:/IIT/MapReduce:/resources -d --name hadoop-hive-pig -d suhothayan/hadoop-hive-pig:2.7.1
+
+docker exec -it hadoop-hive-pig bash
+
+cd resources
+
+hdfs dfs -put listings.csv
+
+yarn jar availabilitycount/target/availabilitycount-1.0-SNAPSHOT.jar availabilitycount.RecordCountDriver listings.csv output/availabiltycount
+
+hdfs dfs -cat output/availabilitycount/part-r-00000
+
+yarn jar rentalcountbyneighbourhood/target/rentalcountbyneighbourhood-1.0-SNAPSHOT.jar rentalcountbyneighbourhood.RecordCountDriver listings.csv output/rentalcountbyneighbourhood
+
+
+hdfs dfs -cat output/rentalcountbyneighbourhood/part-r-00000
